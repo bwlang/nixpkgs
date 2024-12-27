@@ -57,7 +57,8 @@ lib.checkListOfEnum "where-is-my-sddm-theme: variant" validVariants variants
       ''
       + lib.optionalString (lib.elem "qt6" variants) (
         ''
-          cp -r where_is_my_sddm_theme/ $out/share/sddm/themes/
+          cp -r where-is-my-sddm-theme/ $out/share/sddm/themes/
+          ln -s where-is-my-sddm-theme/ $out/share/sddm/themes/where_is_my_sddm_theme
         ''
         + lib.optionalString (lib.isAttrs themeConfig) ''
           ln -sf ${user-cfg} $out/share/sddm/themes/where_is_my_sddm_theme/theme.conf.user
